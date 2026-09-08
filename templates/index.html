@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Primeros Auxilios</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f7f8; display: flex; justify-content: center; padding: 40px; }
+        .card { background: white; border-radius: 12px; padding: 30px; max-width: 500px; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #1f4e5f; text-align: center; }
+        textarea { width: 100%; height: 80px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; box-sizing: border-box; }
+        button { margin-top: 12px; width: 100%; padding: 12px; background: #1f4e5f; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #163a46; }
+        .resultado { margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 15px; line-height: 1.4; }
+        .leve { background: #e6f5e6; border-left: 5px solid #2e7d32; }
+        .moderado { background: #fff8e1; border-left: 5px solid #f9a825; }
+        .grave { background: #fdecea; border-left: 5px solid #c62828; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Primeros Auxilios</h1>
+        <form method="POST">
+            <label for="sintoma">¿Qué sientes?</label>
+            <textarea name="sintoma" id="sintoma" placeholder="Describe tu síntoma...">{{ sintoma }}</textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        {% if resultado %}
+        <div class="resultado {{ nivel }}">
+            {{ resultado }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
